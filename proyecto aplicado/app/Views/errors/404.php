@@ -1,0 +1,1 @@
+<section class="empty-state"><p class="section-kicker">404</p><h1>Esta página no está disponible.</h1><p>El lugar o la página que buscas no se encuentra en el catálogo.</p><a class="button button-primary" href="<?= e(url()) ?>">Volver al inicio</a></section>

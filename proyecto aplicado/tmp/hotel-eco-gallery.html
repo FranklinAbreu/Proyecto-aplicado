@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="es" prefix="og: https://ogp.me/ns#">
+<head><meta charset="UTF-8" /><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{delete Object.assign(arguments[0],{[t(e)]:arguments[0][e]})[e]})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="https://ecodelmar.com.do/xmlrpc.php" />
+	
+<!-- Optimización para motores de búsqueda de Rank Math -  https://rankmath.com/ -->
+<title>Galería - Eco Del Mar</title>
+<meta name="description" content="Eco del Mar © All Right Reserved."/>
+<meta name="robots" content="follow, noindex"/>
+<meta property="og:locale" content="es_ES" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Galería - Eco Del Mar" />
+<meta property="og:description" content="Eco del Mar © All Right Reserved." />
+<meta property="og:url" content="https://ecodelmar.com.do/galeria/" />
+<meta property="og:site_name" content="Eco Del Mar" />
+<meta property="og:updated_time" content="2023-04-26T19:02:12+00:00" />
+<meta property="og:image" content="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/1-2-p5uh1pi4w87hzbsdqbhgfa98c5i6wdw4aks85jmyo0.jpg" />
+<meta property="og:image:secure_url" content="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/1-2-p5uh1pi4w87hzbsdqbhgfa98c5i6wdw4aks85jmyo0.jpg" />
+<meta property="og:image:alt" content="Eco Del Mar" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Galería - Eco Del Mar" />
+<meta name="twitter:description" content="Eco del Mar © All Right Reserved." />
+<meta name="twitter:image" content="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/1-2-p5uh1pi4w87hzbsdqbhgfa98c5i6wdw4aks85jmyo0.jpg" />
+<meta name="twitter:label1" content="Tiempo de lectura" />
+<meta name="twitter:data1" content="Menos de un minuto" />
+<!-- /Plugin Rank Math WordPress SEO -->
+
+<link rel="alternate" type="application/rss+xml" title="Eco Del Mar &raquo; Feed" href="https://ecodelmar.com.do/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Eco Del Mar &raquo; Feed de los comentarios" href="https://ecodelmar.com.do/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://ecodelmar.com.do/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fecodelmar.com.do%2Fgaleria%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://ecodelmar.com.do/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fecodelmar.com.do%2Fgaleria%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link data-minify="1" rel='stylesheet' id='fluentform-elementor-widget-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/plugins/fluentform/assets/css/fluent-forms-elementor-widget.css?ver=1791871472' media='all' />
+<link data-minify="1" rel='stylesheet' id='hfe-widgets-style-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend.css?ver=1791871472' media='all' />
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link data-minify="1" rel='stylesheet' id='hfe-style-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css?ver=1791871472' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1791871472' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='elementor-post-8-css' href='https://ecodelmar.com.do/wp-content/uploads/elementor/css/post-8.css?ver=1791871101' media='all' />
+<link rel='stylesheet' id='wpforms-classic-full-css' href='https://ecodelmar.com.do/wp-content/plugins/wpforms-lite/assets/css/frontend/classic/wpforms-full.min.css?ver=2.0.2' media='all' />
+<link rel='stylesheet' id='elementor-pro-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor-pro/assets/css/frontend.min.css?ver=3.12.3' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInDown-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInDown.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='widget-divider-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInUp-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='e-animation-shrink-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='e-animation-zoomIn-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/lib/animations/styles/zoomIn.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInLeft-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInLeft.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInRight-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInRight.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='e-animation-bob-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-bob.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='widget-social-icons-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='e-apple-webkit-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=4.2.4' media='all' />
+<link rel='stylesheet' id='elementor-post-122-css' href='https://ecodelmar.com.do/wp-content/uploads/elementor/css/post-122.css?ver=1791871483' media='all' />
+<link rel='stylesheet' id='elementor-post-1094-css' href='https://ecodelmar.com.do/wp-content/uploads/elementor/css/post-1094.css?ver=1791871101' media='all' />
+<link data-minify="1" rel='stylesheet' id='hello-elementor-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/css/reset.css?ver=1791871472' media='all' />
+<link data-minify="1" rel='stylesheet' id='hello-elementor-theme-style-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/css/theme.css?ver=1791871472' media='all' />
+<link data-minify="1" rel='stylesheet' id='hello-elementor-header-footer-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=1791871472' media='all' />
+<link rel='stylesheet' id='elementor-post-2513-css' href='https://ecodelmar.com.do/wp-content/uploads/elementor/css/post-2513.css?ver=1791871101' media='all' />
+<link rel='stylesheet' id='elementor-post-1409-css' href='https://ecodelmar.com.do/wp-content/uploads/elementor/css/post-1409.css?ver=1791871101' media='all' />
+<link data-minify="1" rel='stylesheet' id='hfe-elementor-icons-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1791871472' media='all' />
+<link rel='stylesheet' id='hfe-icons-list-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=3.24.3' media='all' />
+<link rel='stylesheet' id='hfe-social-icons-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=3.24.0' media='all' />
+<link data-minify="1" rel='stylesheet' id='hfe-social-share-icons-brands-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.css?ver=1791871472' media='all' />
+<link data-minify="1" rel='stylesheet' id='hfe-social-share-icons-fontawesome-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.css?ver=1791871472' media='all' />
+<link data-minify="1" rel='stylesheet' id='hfe-nav-menu-icons-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.css?ver=1791871472' media='all' />
+<link rel='stylesheet' id='hfe-widget-blockquote-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor-pro/assets/css/widget-blockquote.min.css?ver=3.25.0' media='all' />
+<link rel='stylesheet' id='hfe-mega-menu-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor-pro/assets/css/widget-mega-menu.min.css?ver=3.26.2' media='all' />
+<link rel='stylesheet' id='hfe-nav-menu-widget-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=3.26.0' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-gf-local-raleway-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/raleway.css?ver=1791871472' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-gf-local-playfairdisplay-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/playfairdisplay.css?ver=1791871484' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-gf-local-opensans-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/opensans.css?ver=1791871472' media='all' />
+<link rel='stylesheet' id='elementor-icons-shared-0-css' href='https://ecodelmar.com.do/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-fa-brands-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=1791871472' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-fa-solid-css' href='https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=1791871472' media='all' />
+<script id="jquery-core-js-extra">window.addEventListener('DOMContentLoaded', function() {
+var pp = {"ajax_url":"https://ecodelmar.com.do/wp-admin/admin-ajax.php"};
+//# sourceURL=jquery-core-js-extra
+});</script>
+<script type="rocketlazyloadscript" id="jquery-core-js" data-rocket-src="https://ecodelmar.com.do/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" defer></script>
+<script type="rocketlazyloadscript" id="jquery-migrate-js" data-rocket-src="https://ecodelmar.com.do/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" defer></script>
+<script type="rocketlazyloadscript" id="jquery-js-after">window.addEventListener('DOMContentLoaded', function() {
+!function($){"use strict";$(document).ready(function(){$(this).scrollTop()>100&&$(".hfe-scroll-to-top-wrap").removeClass("hfe-scroll-to-top-hide"),$(window).scroll(function(){$(this).scrollTop()<100?$(".hfe-scroll-to-top-wrap").fadeOut(300):$(".hfe-scroll-to-top-wrap").fadeIn(300)}),$(".hfe-scroll-to-top-wrap").on("click",function(){$("html, body").animate({scrollTop:0},300);return!1})})}(jQuery);
+!function($){'use strict';$(document).ready(function(){var bar=$('.hfe-reading-progress-bar');if(!bar.length)return;$(window).on('scroll',function(){var s=$(window).scrollTop(),d=$(document).height()-$(window).height(),p=d? s/d*100:0;bar.css('width',p+'%')});});}(jQuery);
+//# sourceURL=jquery-js-after
+});</script>
+<link rel="https://api.w.org/" href="https://ecodelmar.com.do/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://ecodelmar.com.do/wp-json/wp/v2/pages/122" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ecodelmar.com.do/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.3" />
+<link rel='shortlink' href='https://ecodelmar.com.do/?p=122' />
+<meta name="generator" content="Elementor 4.2.4; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://ecodelmar.com.do/wp-content/uploads/2021/04/cropped-Eco-del-Mar-logo-final-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://ecodelmar.com.do/wp-content/uploads/2021/04/cropped-Eco-del-Mar-logo-final-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://ecodelmar.com.do/wp-content/uploads/2021/04/cropped-Eco-del-Mar-logo-final-180x180.png" />
+<meta name="msapplication-TileImage" content="https://ecodelmar.com.do/wp-content/uploads/2021/04/cropped-Eco-del-Mar-logo-final-270x270.png" />
+<style id="wp-custom-css">
+
+
+/** Start Block Kit CSS: 141-3-1d55f1e76be9fb1a8d9de88accbe962f **/
+
+.envato-kit-138-bracket .elementor-widget-container > *:before{
+	content:"[";
+	color:#ffab00;
+	display:inline-block;
+	margin-right:4px;
+	line-height:1em;
+	position:relative;
+	top:-1px;
+}
+
+.envato-kit-138-bracket .elementor-widget-container > *:after{
+	content:"]";
+	color:#ffab00;
+	display:inline-block;
+	margin-left:4px;
+	line-height:1em;
+	position:relative;
+	top:-1px;
+}
+
+/** End Block Kit CSS: 141-3-1d55f1e76be9fb1a8d9de88accbe962f **/
+
+
+</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+
+<body class="wp-singular page-template-default page page-id-122 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor ehf-header ehf-template-hello-elementor ehf-stylesheet-hello-elementor hello-elementor-default elementor-default elementor-kit-8 elementor-page elementor-page-122">
+	<style id="hfe-skip-link-style">
+		.hfe-skip-link{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;}
+		.hfe-skip-link:focus{position:fixed;top:0;inset-inline-start:0;width:auto;height:auto;margin:0;padding:0.75em 1.5em;overflow:visible;clip:auto;clip-path:none;white-space:normal;z-index:100000;background:#fff;color:#0073aa;font-size:14px;text-decoration:underline;border-radius:0 0 3px 0;outline:2px solid #0073aa;outline-offset:-2px;}
+	</style>
+	<a class="hfe-skip-link" href="#content">Ir al contenido principal</a><div id="page" class="hfeed site">
+
+		<header id="masthead" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+			<p class="main-title bhf-hidden" itemprop="headline"><a href="https://ecodelmar.com.do/" title="Eco Del Mar" rel="home">Eco Del Mar</a></p>
+			<style>.elementor-1094 .elementor-element.elementor-element-d6b20ab > .elementor-container > .elementor-column > .elementor-widget-wrap{align-content:center;align-items:center;}.elementor-1094 .elementor-element.elementor-element-d6b20ab:not(.elementor-motion-effects-element-type-background), .elementor-1094 .elementor-element.elementor-element-d6b20ab > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-color:#009BBA;}.elementor-1094 .elementor-element.elementor-element-d6b20ab{transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin-top:0px;margin-bottom:0px;}.elementor-1094 .elementor-element.elementor-element-d6b20ab > .elementor-background-overlay{transition:background 0.3s, border-radius 0.3s, opacity 0.3s;}.elementor-bc-flex-widget .elementor-1094 .elementor-element.elementor-element-77dc2f0.elementor-column .elementor-widget-wrap{align-items:flex-end;}.elementor-1094 .elementor-element.elementor-element-77dc2f0.elementor-column.elementor-element[data-element_type="column"] > .elementor-widget-wrap.elementor-element-populated{align-content:flex-end;align-items:flex-end;}.elementor-1094 .elementor-element.elementor-element-4d76667 > .elementor-widget-container{margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-menu-toggle{margin-left:auto;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu .elementor-item{font-family:"Raleway", Sans-serif;font-size:16px;font-weight:normal;font-style:normal;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--main .elementor-item{color:#FFFFFF;fill:#FFFFFF;padding-left:25px;padding-right:25px;padding-top:25px;padding-bottom:25px;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--main:not(.e--pointer-framed) .elementor-item:before,
+					.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--main:not(.e--pointer-framed) .elementor-item:after{background-color:#FC852D;}.elementor-1094 .elementor-element.elementor-element-4d76667 .e--pointer-framed .elementor-item:before,
+					.elementor-1094 .elementor-element.elementor-element-4d76667 .e--pointer-framed .elementor-item:after{border-color:#FC852D;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--main .elementor-item.elementor-item-active{color:#F8F4EB;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown a, .elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-menu-toggle{color:var( --e-global-color-911a38b );}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown{background-color:#FFFFFF;border-radius:10px 10px 10px 10px;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown a:hover,
+					.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown a.elementor-item-active,
+					.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown a.highlighted,
+					.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-menu-toggle:hover{color:#FFFFFF;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown a:hover,
+					.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown a.elementor-item-active,
+					.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown a.highlighted{background-color:#009BBA;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown a.elementor-item-active{color:#FFFFFF;background-color:#009BBA96;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown .elementor-item, .elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown  .elementor-sub-item{font-family:"Open Sans", Sans-serif;font-size:16px;font-style:normal;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown li:first-child a{border-top-left-radius:10px;border-top-right-radius:10px;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--dropdown li:last-child a{border-bottom-right-radius:10px;border-bottom-left-radius:10px;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--main .elementor-nav-menu--dropdown, .elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu__container.elementor-nav-menu--dropdown{box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.24);}.elementor-1094 .elementor-element.elementor-element-4d76667 div.elementor-menu-toggle{color:#FFFFFF;}.elementor-1094 .elementor-element.elementor-element-4d76667 div.elementor-menu-toggle svg{fill:#FFFFFF;}.elementor-1094 .elementor-element.elementor-element-4d76667 div.elementor-menu-toggle:hover{color:#736758;}.elementor-1094 .elementor-element.elementor-element-4d76667 div.elementor-menu-toggle:hover svg{fill:#736758;}@media(min-width:768px){.elementor-1094 .elementor-element.elementor-element-f7e8c71{width:26.579%;}.elementor-1094 .elementor-element.elementor-element-77dc2f0{width:73.421%;}}@media(max-width:1024px){.elementor-1094 .elementor-element.elementor-element-d6b20ab{padding:10px 10px 10px 10px;}.elementor-1094 .elementor-element.elementor-element-4d76667{--e-nav-menu-horizontal-menu-item-margin:calc( 0px / 2 );}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--main:not(.elementor-nav-menu--layout-horizontal) .elementor-nav-menu > li:not(:last-child){margin-bottom:0px;}.elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu--main > .elementor-nav-menu > li > .elementor-nav-menu--dropdown, .elementor-1094 .elementor-element.elementor-element-4d76667 .elementor-nav-menu__container.elementor-nav-menu--dropdown{margin-top:25px !important;}}@media(max-width:767px){.elementor-1094 .elementor-element.elementor-element-d6b20ab{padding:20px 20px 20px 20px;}.elementor-1094 .elementor-element.elementor-element-f7e8c71{width:80%;}.elementor-1094 .elementor-element.elementor-element-77dc2f0{width:20%;}}</style>		<div data-elementor-type="wp-post" data-elementor-id="1094" class="elementor elementor-1094">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-d6b20ab elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d6b20ab" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-f7e8c71" data-id="f7e8c71" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-07fdaa4 elementor-widget elementor-widget-image" data-id="07fdaa4" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://ecodelmar.com.do/">
+							<img width="452" height="102" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20452%20102'%3E%3C/svg%3E" class="attachment-large size-large wp-image-532" alt="" data-lazy-srcset="https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2.png 452w, https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2-300x68.png 300w" data-lazy-sizes="(max-width: 452px) 100vw, 452px" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2.png" /><noscript><img width="452" height="102" src="https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2.png" class="attachment-large size-large wp-image-532" alt="" srcset="https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2.png 452w, https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2-300x68.png 300w" sizes="(max-width: 452px) 100vw, 452px" /></noscript>								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-77dc2f0" data-id="77dc2f0" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4d76667 elementor-nav-menu--stretch elementor-nav-menu__align-right elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="4d76667" data-element_type="widget" data-e-type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:10,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;,&quot;sticky_effects_offset&quot;:0}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-slide">
+				<ul id="menu-1-4d76667" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3317"><a href="https://ecodelmar.com.do/blog/" class="elementor-item">Blog</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131"><a href="https://ecodelmar.com.do/habitaciones/" class="elementor-item">Habitaciones</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-128"><a href="https://ecodelmar.com.do/servicios/" class="elementor-item">Servicios</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1449"><a href="https://ecodelmar.com.do/servicios/spa/" class="elementor-sub-item">SPA</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1590"><a href="https://ecodelmar.com.do/servicios/eventos/" class="elementor-sub-item">Eventos</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1591"><a href="https://ecodelmar.com.do/servicios/" class="elementor-sub-item">Todos los servicios</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-122 current_page_item menu-item-127"><a href="https://ecodelmar.com.do/galeria/" aria-current="page" class="elementor-item elementor-item-active">Galería</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-126"><a href="https://ecodelmar.com.do/contactos/" class="elementor-item">Contactos</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>			<span class="elementor-screen-only">Menu</span>
+		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-4d76667" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3317"><a href="https://ecodelmar.com.do/blog/" class="elementor-item" tabindex="-1">Blog</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131"><a href="https://ecodelmar.com.do/habitaciones/" class="elementor-item" tabindex="-1">Habitaciones</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-128"><a href="https://ecodelmar.com.do/servicios/" class="elementor-item" tabindex="-1">Servicios</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1449"><a href="https://ecodelmar.com.do/servicios/spa/" class="elementor-sub-item" tabindex="-1">SPA</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1590"><a href="https://ecodelmar.com.do/servicios/eventos/" class="elementor-sub-item" tabindex="-1">Eventos</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1591"><a href="https://ecodelmar.com.do/servicios/" class="elementor-sub-item" tabindex="-1">Todos los servicios</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-122 current_page_item menu-item-127"><a href="https://ecodelmar.com.do/galeria/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">Galería</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-126"><a href="https://ecodelmar.com.do/contactos/" class="elementor-item" tabindex="-1">Contactos</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+				</header>
+
+	
+<main id="content" class="site-main post-122 page type-page status-publish hentry">
+
+	
+	<div class="page-content">
+				<div data-elementor-type="wp-page" data-elementor-id="122" class="elementor elementor-122">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-4bdd4d9e elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle elementor-invisible" data-id="4bdd4d9e" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInDown&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-40c8bc63" data-id="40c8bc63" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2fc0266 elementor-widget elementor-widget-heading" data-id="2fc0266" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">Nuestra Galería</h1>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7e919dd3 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible" data-id="7e919dd3" data-element_type="section" data-e-type="section" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-ef71b23" data-id="ef71b23" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-10312d87 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="10312d87" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-3ba031ac" data-id="3ba031ac" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a5752ca elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="a5752ca" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5a12b696" data-id="5a12b696" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-230231eb elementor-widget elementor-widget-heading" data-id="230231eb" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h5 class="elementor-heading-title elementor-size-default">Capturas para</h5>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-347119e8 elementor-widget elementor-widget-heading" data-id="347119e8" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Cada momento con nosotros</h2>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2634c0f0" data-id="2634c0f0" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-182b5a3f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="182b5a3f" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-51d75ac9 elementor-invisible" data-id="51d75ac9" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-47af4035 elementor-widget elementor-widget-image" data-id="47af4035" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="1" alt="1" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/1-2-p5uh1pi4w87hzbsdqbhgfa98c5i6wdw4aks8h4ejiw.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/1-2-p5uh1pi4w87hzbsdqbhgfa98c5i6wdw4aks8h4ejiw.jpg" title="1" alt="1" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-4c87d903 elementor-invisible" data-id="4c87d903" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-675de07 elementor-widget elementor-widget-image" data-id="675de07" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="Eco del Mar – Bahía de las Águilas" alt="Eco del Mar - Bahía de las Águilas" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/Eco-del-Mar-Bahia-de-las-Aguilas-p5uea7b7elzqxebprt28yw7kgpyd1vv2a2ksjlxw7s.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/Eco-del-Mar-Bahia-de-las-Aguilas-p5uea7b7elzqxebprt28yw7kgpyd1vv2a2ksjlxw7s.jpg" title="Eco del Mar – Bahía de las Águilas" alt="Eco del Mar - Bahía de las Águilas" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-35fce405 elementor-invisible" data-id="35fce405" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-35f48e30 elementor-widget elementor-widget-image" data-id="35f48e30" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="2" alt="2" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/2-1-p5uh1qfz328saxr0ktw2zs0oxjdk42zumpfpyed5co.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/2-1-p5uh1qfz328saxr0ktw2zs0oxjdk42zumpfpyed5co.jpg" title="2" alt="2" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-510ef01c elementor-invisible" data-id="510ef01c" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-45bffb3e elementor-widget elementor-widget-image" data-id="45bffb3e" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="Excursiones – Bahía de las Águilas – Eco del Mar" alt="Excursiones - Bahía de las Águilas - Eco del Mar" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/Excursiones-Bahia-de-las-Aguilas-Eco-del-Mar-p5yxe60zmq9pa2ywmhv1vmhz45sfg45jxlh9l1irtk.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/Excursiones-Bahia-de-las-Aguilas-Eco-del-Mar-p5yxe60zmq9pa2ywmhv1vmhz45sfg45jxlh9l1irtk.jpg" title="Excursiones – Bahía de las Águilas – Eco del Mar" alt="Excursiones - Bahía de las Águilas - Eco del Mar" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-c249dc7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c249dc7" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-884cd35" data-id="884cd35" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-d9ead1b elementor-widget elementor-widget-heading" data-id="d9ead1b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Entorno</h2>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-75ccaaf3 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="75ccaaf3" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7ce205c5 elementor-invisible" data-id="7ce205c5" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;,&quot;animation_mobile&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-21e4a9be elementor-widget elementor-widget-image" data-id="21e4a9be" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="28" alt="28" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/28-p5z71br3rxi59ep9gk2ms0qpfaoqbqcnnvh6g2s9qw.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/28-p5z71br3rxi59ep9gk2ms0qpfaoqbqcnnvh6g2s9qw.jpg" title="28" alt="28" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-a8e1e6e elementor-invisible" data-id="a8e1e6e" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;,&quot;animation_mobile&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-66ac5d3d elementor-widget elementor-widget-image" data-id="66ac5d3d" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="27" alt="27" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/27-p5z7214qwggvyvoecd1k5cc5gp7n3k5erd3aejqn2w.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/27-p5z7214qwggvyvoecd1k5cc5gp7n3k5erd3aejqn2w.jpg" title="27" alt="27" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-c3f4fee elementor-invisible" data-id="c3f4fee" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;,&quot;animation_mobile&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c7296cd elementor-widget elementor-widget-image" data-id="c7296cd" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="32" alt="32" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/32-p5z72i1ubh41ruztlkcue82g5mw8y40ktou11j1jyw.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/32-p5z72i1ubh41ruztlkcue82g5mw8y40ktou11j1jyw.jpg" title="32" alt="32" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7d6d86c9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7d6d86c9" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-6135986c elementor-invisible" data-id="6135986c" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-6397869d elementor-widget elementor-widget-image" data-id="6397869d" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="34" alt="34" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/34-p5z7222l3ai6ahn16vg6pu3m2330b9953hqrvtp8wo.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/34-p5z7222l3ai6ahn16vg6pu3m2330b9953hqrvtp8wo.jpg" title="34" alt="34" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-78a8077f elementor-invisible" data-id="78a8077f" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-6c6b5954 elementor-widget elementor-widget-image" data-id="6c6b5954" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="35" alt="35" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/35-p5z723y9gykqxpkavw9futmj8utqqnglrr1qudmgk8.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/35-p5z723y9gykqxpkavw9futmj8utqqnglrr1qudmgk8.jpg" title="35" alt="35" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-55b99691 elementor-invisible" data-id="55b99691" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-660d5e84 elementor-widget elementor-widget-image" data-id="660d5e84" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="31" alt="31" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/31-p5z72h404n2rg916r1y7tqazk90vqewuhk6jk92y54.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/31-p5z72h404n2rg916r1y7tqazk90vqewuhk6jk92y54.jpg" title="31" alt="31" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-f24b5c3 elementor-invisible" data-id="f24b5c3" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-19dfe39f elementor-widget elementor-widget-image" data-id="19dfe39f" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="33" alt="33" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/33-p5z72izoib5c3gygg2rgyptwr0rm5t4b5thiit05so.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/33-p5z72izoib5c3gygg2rgyptwr0rm5t4b5thiit05so.jpg" title="33" alt="33" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-56cfd14 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="56cfd14" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9a90258" data-id="9a90258" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ebf15e4 elementor-widget elementor-widget-heading" data-id="ebf15e4" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Restaurante</h2>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-cd558d9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="cd558d9" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-56343ee elementor-invisible" data-id="56343ee" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;,&quot;animation_mobile&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-38293d4 elementor-widget elementor-widget-image" data-id="38293d4" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="37" alt="37" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/37-p5z7bfin8tc42i0vgfb92yy3bevs2lgs1vy365swuw.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/37-p5z7bfin8tc42i0vgfb92yy3bevs2lgs1vy365swuw.jpg" title="37" alt="37" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5613567 elementor-invisible" data-id="5613567" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;,&quot;animation_mobile&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-729f583 elementor-widget elementor-widget-image" data-id="729f583" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="39" alt="39" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/39-p5z7bhebmheoppy55g4i7yh0i6mihzo8q5924pq4ig.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/39-p5z7bhebmheoppy55g4i7yh0i6mihzo8q5924pq4ig.jpg" title="39" alt="39" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-81d501e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="81d501e" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-e9e5227 elementor-invisible" data-id="e9e5227" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1d17eae elementor-widget elementor-widget-image" data-id="1d17eae" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="40" alt="40" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/40-p5z7bic5tbfz1bwrzyj4sg8h3khvporz29wjlzoqc8.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/40-p5z7bic5tbfz1bwrzyj4sg8h3khvporz29wjlzoqc8.jpg" title="40" alt="40" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-669efb2 elementor-invisible" data-id="669efb2" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f8a3430 elementor-widget elementor-widget-image" data-id="f8a3430" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="41" alt="41" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/41-p5z7bja005h9cxveugxrcxzxoyd8xdvpeek139nc60.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/41-p5z7bja005h9cxveugxrcxzxoyd8xdvpeek139nc60.jpg" title="41" alt="41" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-08eb392 elementor-invisible" data-id="08eb392" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4122876 elementor-widget elementor-widget-image" data-id="4122876" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="42" alt="42" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/42-p5z7bk7u6zijoju1ozcdxfreac8m52zfqj7ikjlxzs.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/42-p5z7bk7u6zijoju1ozcdxfreac8m52zfqj7ikjlxzs.jpg" title="42" alt="42" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-3a6a33d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3a6a33d" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-20ca170 elementor-invisible" data-id="20ca170" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-05e5383 elementor-widget elementor-widget-image" data-id="05e5383" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="43" alt="43" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/43-p5z7bl5odtju05sojhr0hxiuvq3zcs362nv01tkjtk.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/43-p5z7bl5odtju05sojhr0hxiuvq3zcs362nv01tkjtk.jpg" title="43" alt="43" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-545d30e elementor-invisible" data-id="545d30e" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-85b41fa elementor-widget elementor-widget-image" data-id="85b41fa" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="44" alt="44" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/44-p5z7bn1crhmendpy8ik9mx1s2hups6amqx5z0dhrh4.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/44-p5z7bn1crhmendpy8ik9mx1s2hups6amqx5z0dhrh4.jpg" title="44" alt="44" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-785f915 elementor-invisible" data-id="785f915" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4b40ef6 elementor-widget elementor-widget-image" data-id="4b40ef6" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="45" alt="45" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/45-p5z7bnz6ybnoyzol30yw7et8nvq2zved31tghngdaw.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/45-p5z7bnz6ybnoyzol30yw7et8nvq2zved31tghngdaw.jpg" title="45" alt="45" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-16646b3 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="16646b3" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-b7f5cf2 elementor-invisible" data-id="b7f5cf2" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-39fdbf3 elementor-widget elementor-widget-image" data-id="39fdbf3" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="46" alt="46" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/46-p5z7box155ozaln7xjdirwkp99lg7ki3f6gxyxez4o.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/46-p5z7box155ozaln7xjdirwkp99lg7ki3f6gxyxez4o.jpg" title="46" alt="46" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7d8599e elementor-invisible" data-id="7d8599e" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ac11afd elementor-widget elementor-widget-image" data-id="ac11afd" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="47" alt="47" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/47-p5z7bpuvbzq9m7lus1s5cec5ungtf9ltrb4fg7dkyg.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/47-p5z7bpuvbzq9m7lus1s5cec5ungtf9ltrb4fg7dkyg.jpg" title="47" alt="47" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-71199b4 elementor-invisible" data-id="71199b4" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-007a45b elementor-widget elementor-widget-image" data-id="007a45b" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="48" alt="48" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/48-p5z7bqspitrjxtkhmk6rww3mg1c6mypk3frwxhc6s8.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/48-p5z7bqspitrjxtkhmk6rww3mg1c6mypk3frwxhc6s8.jpg" title="48" alt="48" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-67515ce elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="67515ce" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8bbf44d" data-id="8bbf44d" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4fc5634 elementor-widget elementor-widget-heading" data-id="4fc5634" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">SPA</h2>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-f541383 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f541383" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-bf395dd elementor-invisible" data-id="bf395dd" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;,&quot;animation_mobile&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4a66340 elementor-widget elementor-widget-image" data-id="4a66340" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="55" alt="55" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/55-p5z7lbrh70vsapneo7autz1sgg3w3vr1qv74214pco.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/55-p5z7lbrh70vsapneo7autz1sgg3w3vr1qv74214pco.jpg" title="55" alt="55" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-994422d elementor-invisible" data-id="994422d" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;,&quot;animation_mobile&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-000865a elementor-widget elementor-widget-image" data-id="000865a" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="57" alt="57" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/57-p5z7ldn5koycxxkod843yykpn7umj9yif4i30l1x08.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/57-p5z7ldn5koycxxkod843yykpn7umj9yif4i30l1x08.jpg" title="57" alt="57" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5657333 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5657333" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-6686ca9 elementor-invisible" data-id="6686ca9" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1e13105 elementor-widget elementor-widget-image" data-id="1e13105" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="51" alt="51" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/51-p5z7l72a8upconu8fn9pzi8hhir21e8e27xonnbo7s.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/51-p5z7l72a8upconu8fn9pzi8hhir21e8e27xonnbo7s.jpg" title="51" alt="51" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-ca3ab76 elementor-invisible" data-id="ca3ab76" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-cf4dfc3 elementor-widget elementor-widget-image" data-id="cf4dfc3" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="52" alt="52" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/52-p5z7l804foqn09sva5ocjzzy2wmf93c4ecl64xaa1k.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/52-p5z7l804foqn09sva5ocjzzy2wmf93c4ecl64xaa1k.jpg" title="52" alt="52" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-33c1a06 elementor-invisible" data-id="33c1a06" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-95194ad elementor-widget elementor-widget-image" data-id="95194ad" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="53" alt="53" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/53-p5z7l8xymirxbvri4o2z4hreoahsgsfuqh8nm78vvc.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/53-p5z7l8xymirxbvri4o2z4hreoahsgsfuqh8nm78vvc.jpg" title="53" alt="53" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-509d66b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="509d66b" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-f1d157d elementor-invisible" data-id="f1d157d" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-880f345 elementor-widget elementor-widget-image" data-id="880f345" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="54" alt="54" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/54-p5z7latn06uhz3ortow89habv28iw6nbeqjmkr63iw.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/54-p5z7latn06uhz3ortow89habv28iw6nbeqjmkr63iw.jpg" title="54" alt="54" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-561cb65 elementor-invisible" data-id="561cb65" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-470e833 elementor-widget elementor-widget-image" data-id="470e833" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="50" alt="50" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/50-p5z7l64g20o2d1vll4v3f0h0w4votp4nq3a76dd2e0.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/50-p5z7l64g20o2d1vll4v3f0h0w4votp4nq3a76dd2e0.jpg" title="50" alt="50" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-eafb97f elementor-invisible" data-id="eafb97f" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7e4235a elementor-widget elementor-widget-image" data-id="7e4235a" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" title="56" alt="56" class="elementor-animation-shrink" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/56-p5z7lcpbdux2mbm1ipphegt91tz9bkus2zuljb3b6g.jpg" /><noscript><img decoding="async" src="https://ecodelmar.com.do/wp-content/uploads/elementor/thumbs/56-p5z7lcpbdux2mbm1ipphegt91tz9bkus2zuljb3b6g.jpg" title="56" alt="56" class="elementor-animation-shrink" loading="lazy" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-98b88fb elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="98b88fb" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-408b7b7 elementor-invisible" data-id="408b7b7" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-eb73b96 elementor-widget elementor-widget-heading" data-id="eb73b96" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">¿Necesitas Algún Servicio Adicional?</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-9edde06 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="9edde06" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-237048a elementor-widget elementor-widget-heading" data-id="237048a" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">Ponte en contacto con nosotros para consultar cualquier requerimiento adicional que necesites confirmar antes de asegurar tu reservación.</h3>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7555a59 elementor-invisible" data-id="7555a59" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-041086a elementor-align-right elementor-mobile-align-left elementor-widget elementor-widget-button" data-id="041086a" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://ecodelmar.com.do/contactos/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Contáctanos</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2c02a04 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="2c02a04" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f4595d0" data-id="f4595d0" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-e8e56a6 elementor-widget elementor-widget-shortcode" data-id="e8e56a6" data-element_type="widget" data-e-type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-shortcode">		<div data-elementor-type="section" data-elementor-id="1663" class="elementor elementor-1663">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-f064449 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f064449" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-b72e123 elementor-invisible" data-id="b72e123" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3f6a90f elementor-widget elementor-widget-heading" data-id="3f6a90f" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Suscríbete a nuestra Newsletter</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-90c8e23 elementor-widget elementor-widget-text-editor" data-id="90c8e23" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Recibe de primera mano nuestro contenido exclusivo con ofertas especiales y promociones de tu interés.</p>								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-1937f56 elementor-invisible" data-id="1937f56" data-element_type="column" data-e-type="column" data-settings="{&quot;animation&quot;:&quot;zoomIn&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f02030f pp-wpforms-labels-no pp-wpforms-errors-show pp-wpforms-form-button-custom elementor-widget elementor-widget-pp-wpforms" data-id="f02030f" data-element_type="widget" data-e-type="widget" data-widget_type="pp-wpforms.default">
+				<div class="elementor-widget-container">
+							<div class="pp-contact-form pp-wpforms">
+						<div class="wpforms-container wpforms-container-full" id="wpforms-1662"><form id="wpforms-form-1662" class="wpforms-validate wpforms-form" data-formid="1662" method="post" enctype="multipart/form-data" action="/" data-token="7b87de188605067073bd8f7c0f5513f8" data-token-time="1791871472"><div class="wpforms-head-container"></div><noscript class="wpforms-error-noscript">Por favor, activa JavaScript en tu navegador para completar este formulario.</noscript><div class="wpforms-field-container"><div id="wpforms-1662-field_0-container" class="wpforms-field wpforms-field-name" data-field-id="0"><label class="wpforms-field-label" for="wpforms-1662-field_0">Nombre <span class="wpforms-required-label">*</span></label><input type="text" id="wpforms-1662-field_0" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][0]" placeholder="Nombre" required></div><div id="wpforms-1662-field_1-container" class="wpforms-field wpforms-field-email" data-field-id="1"><label class="wpforms-field-label" for="wpforms-1662-field_1">Correo electrónico <span class="wpforms-required-label">*</span></label><input type="email" id="wpforms-1662-field_1" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][1]" placeholder="Correo electrónico" spellcheck="false" required></div></div><!-- .wpforms-field-container --><div class="wpforms-submit-container" ><input type="hidden" name="wpforms[id]" value="1662"><input type="hidden" name="wpforms[time_token]" value="1791871472.b274982c0aea0be939833bc4d1dbc52b895d1181246b8030a6b44d868f0c07cf"><input type="hidden" name="page_title" value="Inicio"><input type="hidden" name="page_url" value="https://ecodelmar.com.do/"><input type="hidden" name="url_referer" value=""><input type="hidden" name="page_id" value="10"><input type="hidden" name="wpforms[post_id]" value="10"><button type="submit" name="wpforms[submit]" id="wpforms-submit-1662" class="wpforms-submit" aria-live="assertive" value="wpforms-submit">SUSCRIBIR</button></div></form></div>  <!-- .wpforms-container -->			<div id="pp-wpforms-status-f02030f" class="elementor-screen-only" role="status" aria-live="polite" aria-atomic="true"></div>
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+							</div>
+				</div>
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-096cc7b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="096cc7b" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-825467b" data-id="825467b" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-569239b elementor-widget elementor-widget-text-editor" data-id="569239b" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Eco del Mar © All Right Reserved.</p>								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-9ede0a9" data-id="9ede0a9" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-5f163f2 elementor-shape-circle e-grid-align-mobile-center e-grid-align-tablet-left elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons" data-id="5f163f2" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-animation-bob elementor-repeater-item-421c6ef" href="https://www.facebook.com/ecodelmar" target="_blank" rel="noopener">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<i aria-hidden="true" class="fab fa-facebook-f"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-bob elementor-repeater-item-5dea297" href="https://www.instagram.com/ecodelmar/" target="_blank" rel="noopener">
+						<span class="elementor-screen-only">Instagram</span>
+						<i aria-hidden="true" class="fab fa-instagram"></i>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-ccdb961" data-id="ccdb961" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-01fd812 elementor-widget elementor-widget-text-editor" data-id="01fd812" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Powered by <span style="text-decoration: underline; color: #ffffff;"><a style="color: #ffffff; text-decoration: underline;" href="https://growsify.me/" target="_blank" rel="noopener">Growsify</a></span>.</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		
+		
+			</div>
+
+	
+</main>
+
+			<div data-elementor-type="footer" data-elementor-id="1409" class="elementor elementor-1409 elementor-location-footer">
+					<div class="elementor-section-wrap">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-7c2c32a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7c2c32a" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-5bd3f75" data-id="5bd3f75" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-9b7f173 elementor-widget elementor-widget-image" data-id="9b7f173" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="452" height="102" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20452%20102'%3E%3C/svg%3E" class="attachment-large size-large wp-image-532" alt="" data-lazy-srcset="https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2.png 452w, https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2-300x68.png 300w" data-lazy-sizes="(max-width: 452px) 100vw, 452px" data-lazy-src="https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2.png" /><noscript><img width="452" height="102" src="https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2.png" class="attachment-large size-large wp-image-532" alt="" srcset="https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2.png 452w, https://ecodelmar.com.do/wp-content/uploads/2021/04/Recurso-2-300x68.png 300w" sizes="(max-width: 452px) 100vw, 452px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-75a19a2" data-id="75a19a2" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-171488f elementor-widget elementor-widget-heading" data-id="171488f" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Contacto</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-5ac8926 elementor-widget elementor-widget-text-editor" data-id="5ac8926" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><span style="text-decoration: underline;"><span style="color: #ffffff;">info<a style="color: #ffffff; text-decoration: underline;" href="mailto:contacto@ecodelmar.com.do">@ecodelmar.com.do</a></span></span></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-1de3d8f elementor-widget elementor-widget-heading" data-id="1de3d8f" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Redes Sociales</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-fed804c elementor-shape-circle e-grid-align-left e-grid-align-tablet-left e-grid-align-mobile-center elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="fed804c" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-animation-bob elementor-repeater-item-421c6ef" href="https://www.facebook.com/ecodelmar" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<i aria-hidden="true" class="fab fa-facebook-f"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-bob elementor-repeater-item-5dea297" href="https://www.instagram.com/ecodelmar/" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<i aria-hidden="true" class="fab fa-instagram"></i>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-8247239" data-id="8247239" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-9cff533 elementor-widget elementor-widget-heading" data-id="9cff533" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Empresa</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-9b311c4 elementor-nav-menu__align-left elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="9b311c4" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-underline e--animation-fade">
+				<ul id="menu-1-9b311c4" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1728"><a href="https://ecodelmar.com.do/terminos-de-uso/" class="elementor-item">Terminos de uso</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1729"><a href="https://ecodelmar.com.do/politicas-cookies/" class="elementor-item">Politicas Cookies</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-1730"><a rel="privacy-policy" href="https://ecodelmar.com.do/politicas-de-privacidad/" class="elementor-item">Politicas de privacidad</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3002"><a href="https://ecodelmar.com.do/politicas-de-cancelacion/" class="elementor-item">Políticas de cancelación</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-9b311c4" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1728"><a href="https://ecodelmar.com.do/terminos-de-uso/" class="elementor-item" tabindex="-1">Terminos de uso</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1729"><a href="https://ecodelmar.com.do/politicas-cookies/" class="elementor-item" tabindex="-1">Politicas Cookies</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-1730"><a rel="privacy-policy" href="https://ecodelmar.com.do/politicas-de-privacidad/" class="elementor-item" tabindex="-1">Politicas de privacidad</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3002"><a href="https://ecodelmar.com.do/politicas-de-cancelacion/" class="elementor-item" tabindex="-1">Políticas de cancelación</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<footer class="elementor-section elementor-top-section elementor-element elementor-element-d260d23 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d260d23" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7290feb" data-id="7290feb" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-eb2d149 elementor-widget elementor-widget-text-editor" data-id="eb2d149" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Eco del Mar © All Right Reserved.</p>								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-cae12ca" data-id="cae12ca" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-1f1ba9e" data-id="1f1ba9e" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-0be14a6 elementor-widget elementor-widget-text-editor" data-id="0be14a6" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Powered by <span style="text-decoration: underline; color: #ffffff;"><a style="color: #ffffff; text-decoration: underline;" href="https://growsify.me/">Growsify</a></span>.</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</footer>
+							</div>
+				</div>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+			<script type="rocketlazyloadscript">
+				( () => {
+					const lazyloadRunObserver = () => {
+						const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+						const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+							entries.forEach( ( entry ) => {
+								if ( entry.isIntersecting ) {
+									let lazyloadBackground = entry.target;
+									if( lazyloadBackground ) {
+										lazyloadBackground.classList.add( 'e-lazyloaded' );
+									}
+									lazyloadBackgroundObserver.unobserve( entry.target );
+								}
+							});
+						}, { rootMargin: '200px 0px 200px 0px' } );
+						lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+							lazyloadBackgroundObserver.observe( lazyloadBackground );
+						} );
+					};
+					const events = [
+						'DOMContentLoaded',
+						'elementor/lazyload/observe',
+					];
+					events.forEach( ( event ) => {
+						document.addEventListener( event, lazyloadRunObserver );
+					} );
+				} )();
+			</script>
+			<link rel='stylesheet' id='elementor-post-1663-css' href='https://ecodelmar.com.do/wp-content/uploads/elementor/css/post-1663.css?ver=1791871472' media='all' />
+<link rel='stylesheet' id='widget-pp-wp-forms-css' href='https://ecodelmar.com.do/wp-content/plugins/powerpack-lite-for-elementor/assets/css/min/widget-wp-forms.min.css?ver=3.1.0' media='all' />
+<script id="fluentform-elementor-js-extra">
+var fluentformElementor = {"adminUrl":"https://ecodelmar.com.do/wp-admin/admin.php"};
+//# sourceURL=fluentform-elementor-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" id="fluentform-elementor-js" data-rocket-src="https://ecodelmar.com.do/wp-content/cache/min/1/wp-content/plugins/fluentform/assets/js/fluent-forms-elementor-widget.js?ver=1768543132" defer></script>
+<script type="rocketlazyloadscript" id="elementor-webpack-runtime-js" data-rocket-src="https://ecodelmar.com.do/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.2.4" defer></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-modules-js" data-rocket-src="https://ecodelmar.com.do/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.2.4" defer></script>
+<script type="rocketlazyloadscript" id="jquery-ui-core-js-before">window.addEventListener('DOMContentLoaded', function() {
+jQuery.uiBackCompat = true;
+//# sourceURL=jquery-ui-core-js-before
+});</script>
+<script type="rocketlazyloadscript" id="jquery-ui-core-js" data-rocket-src="https://ecodelmar.com.do/wp-includes/js/jquery/ui/core.min.js?ver=1.14.2" defer></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartir en Facebook","shareOnX":"Compartir en X","pinIt":"Pinear","download":"Descargar","downloadImage":"Descargar imagen","fullscreen":"Pantalla completa","zoom":"Zoom","share":"Compartir","playVideo":"Reproducir v\u00eddeo","previous":"Anterior","next":"Siguiente","close":"Cerrar","a11yCarouselPrevSlideMessage":"Diapositiva anterior","a11yCarouselNextSlideMessage":"Diapositiva siguiente","a11yCarouselFirstSlideMessage":"Esta es la primera diapositiva","a11yCarouselLastSlideMessage":"Esta es la \u00faltima diapositiva","a11yCarouselPaginationBulletMessage":"Ir a la diapositiva"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"M\u00f3vil vertical","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"M\u00f3vil horizontal","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tableta vertical","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tableta horizontal","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Port\u00e1til","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Pantalla grande","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.2.4","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"e_panel_promotions":true,"theme_builder_v2":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_widget_creation":true,"import-export-customization":true,"page-transitions":true,"notes":true,"loop":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/ecodelmar.com.do\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/ecodelmar.com.do\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/ecodelmar.com.do\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"6df7e3deaf","atomicFormsSendForm":"2cbcd8b766"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":122,"title":"Galer%C3%ADa%20-%20Eco%20Del%20Mar","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js" data-rocket-src="https://ecodelmar.com.do/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.2.4" defer></script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index\\.php/)?(.*)wp\\-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://ecodelmar.com.do","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script type="rocketlazyloadscript" id="smartmenus-js" data-rocket-src="https://ecodelmar.com.do/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1" defer></script>
+<script type="rocketlazyloadscript" id="elementor-pro-webpack-runtime-js" data-rocket-src="https://ecodelmar.com.do/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.12.3" defer></script>
+<script type="rocketlazyloadscript" id="wp-hooks-js" data-rocket-src="https://ecodelmar.com.do/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js" data-rocket-src="https://ecodelmar.com.do/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/ecodelmar.com.do\/wp-admin\/admin-ajax.php","nonce":"6303573d3f","urls":{"assets":"https:\/\/ecodelmar.com.do\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/ecodelmar.com.do\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"es_ES","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/ecodelmar.com.do\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js" data-rocket-src="https://ecodelmar.com.do/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.12.3" defer></script>
+<script type="rocketlazyloadscript" id="pro-preloaded-elements-handlers-js" data-rocket-src="https://ecodelmar.com.do/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js?ver=3.12.3" defer></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://ecodelmar.com.do/wp-includes/js/wp-emoji-release.min.js?ver=7.1.3"}}
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://ecodelmar.com.do/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://ecodelmar.com.do/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1791894994 -->

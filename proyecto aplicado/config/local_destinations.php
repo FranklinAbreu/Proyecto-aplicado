@@ -1,0 +1,50 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    201 => [
+        'nombre' => 'Parque Duarte de Cotuí',
+        'image' => 'images/parque-duarte-cotui.jpg',
+        'image_alt' => 'Estatua de Duarte, palmeras y bancos del Parque Duarte de Cotuí durante una entrega municipal.',
+        'photo_author' => 'Ayuntamiento Municipal de Cotuí',
+        'photo_author_url' => 'https://ayuntamientocotui.gob.do/',
+        'photo_license' => '',
+        'photo_license_url' => '',
+        'photo_rights_note' => 'La publicación no especifica una licencia reutilizable; el sitio declara todos los derechos reservados.',
+        'photo_source' => 'https://ayuntamientocotui.gob.do/alcaldia-de-cotui-recibe-nuevos-bancos-para-completar-parque-duarte-y-anuncia-nuevos-remozamientos/',
+        'photo_source_label' => 'Publicación municipal',
+        'highlight' => 'El corazón de Cotuí',
+        'region' => 'Cibao · Cotuí',
+        'source_url' => 'https://ayuntamientocotui.gob.do/alcaldia-de-cotui-recibe-nuevos-bancos-para-completar-parque-duarte-y-anuncia-nuevos-remozamientos/',
+    ],
+    202 => [
+        'nombre' => 'Presa de Hatillo',
+        'image' => 'images/presa-de-hatillo.jpg',
+        'image_alt' => 'Embalse de Hatillo y montañas vistos desde el paraje de Hatillo.',
+        'photo_author' => 'Elfrancis22',
+        'photo_author_url' => 'https://commons.wikimedia.org/wiki/User:Elfrancis22',
+        'photo_license' => 'CC BY-SA 3.0',
+        'photo_license_url' => 'https://creativecommons.org/licenses/by-sa/3.0/',
+        'photo_source' => 'https://commons.wikimedia.org/wiki/File:Presa_de_hatillo,_vista_desde_el_paraje_de_Hatillo.jpg',
+        'photo_source_label' => 'Wikimedia Commons',
+        'highlight' => 'Paisajes del río Yuna',
+        'region' => 'Cibao · Cotuí',
+        'source_url' => 'https://egehid.gob.do/egehid-firma-protocolo-para-el-uso-recreativo-de-la-presa-de-hatillo/',
+    ],
+    203 => [
+        'nombre' => 'Parque Duarte de Fantino',
+        'image' => 'images/parque-duarte-fantino.jpg',
+        'image_alt' => 'Jardines y entorno del Parque Duarte de Fantino durante una jornada de mantenimiento municipal.',
+        'photo_author' => 'Ayuntamiento Municipal de Fantino',
+        'photo_author_url' => 'https://ayuntamientofantino.gob.do/',
+        'photo_license' => '',
+        'photo_license_url' => '',
+        'photo_rights_note' => 'El boletín municipal no especifica una licencia reutilizable para la fotografía.',
+        'photo_source' => 'https://ayuntamientofantino.gob.do/transparencia/wp-content/uploads/2022/07/Junio-2022-Boletin-Informativo.pdf#page=10',
+        'photo_source_label' => 'Boletín municipal de Fantino',
+        'highlight' => 'Un encuentro con Fantino',
+        'region' => 'Cibao · Fantino',
+        'source_url' => 'https://ayuntamientofantino.gob.do/cultura/',
+    ],
+];

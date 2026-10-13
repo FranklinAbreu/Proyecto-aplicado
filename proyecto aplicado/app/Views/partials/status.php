@@ -1,0 +1,1 @@
+<?php if ($isDemo): ?><p class="status-note"><span class="status-dot" aria-hidden="true"></span><span><strong>Catálogo inicial.</strong> Explora destinos reales de República Dominicana. Esta vista utiliza el catálogo inicial.</span></p><?php endif; ?>
